@@ -13,13 +13,13 @@ runs:
   using: "composite"
   steps: 
     - run: |
-        chmod +x ExecuteSomething.sh
+        chmod +x ${{ github.action_path }}/ExecuteSomething.sh
         ${{ github.action_path }}/ExecuteSomething.sh
       shell: bash
     - id: random-number-generator
       run: echo "::set-output name=filesNo::$(echo $RANDOM)"
       shell: bash
     - run: |
-        chmod +x CopyFiles.sh
+        chmod +x {{ github.action_path }}/CopyFiles.sh
         ${{ github.action_path }}/CopyFiles.sh
       shell: bash
